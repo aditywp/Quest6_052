@@ -23,3 +23,62 @@ enum class Halaman{
     Tampil
 }
 
+@Composable
+fun MahasiswaApp(
+    modifier: Modifier = Modifier,
+    mahasiswaViewModel: MahasiswaViewModel = viewModel(),
+    krsViewModel: RencanaStudyViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+){
+    val mahasiswaUiState = mahasiswaViewModel.dataModel.collectAsState().value
+    val krsUiState = krsViewModel.krsStateUi.collectAsState().value
+
+    NavHost(
+        navController = navController,
+        startDestination = Halaman.Splash.name,
+        modifier = Modifier.padding()
+    ){
+        composable(route = Halaman.Splash.name){
+            SplashView(
+                onMulaiButton = {
+                    navController.navigate(Halaman.Mahasiswa.name)
+                }
+            )
+        }
+
+        composable(route = Halaman.Mahasiswa.name){
+            MahasiswaFormView(
+                onSubmitButtonClicked = {
+                    mahasiswaViewModel.saveDataMhs(it)
+                    navController.navigate(Halaman.Matakuliah.name)
+                },
+                onBackButtonClicked =  {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(route = Halaman.Matakuliah.name){
+            RencanaStudyView(
+                mahasiswa = mahasiswaUiState,
+                onSubmitButtonClicked = {
+                    krsViewModel.saveDataKRS(it)
+                    navController.navigate(Halaman.Tampil.name)
+                },
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(route = Halaman.Tampil.name){
+            DataView(
+                dataMHS = mahasiswaUiState,
+                dataKRS = krsUiState,
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
+        }
+    }
+}
