@@ -42,5 +42,15 @@ fun SplashView(
             modifier = Modifier.size(150.dp)
         )
         Spacer(modifier = Modifier.padding(10.dp))
-
+        Button(
+            onClick = {
+                onMulaiButton()
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(32.dp),
+        ){
+            Text(text = "mulai")
+        }
+    }
 }
