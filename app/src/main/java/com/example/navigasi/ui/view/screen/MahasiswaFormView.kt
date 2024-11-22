@@ -43,6 +43,16 @@ fun MahasiswaFormView(
     onSubmitButtonClicked: (MutableList<String>) -> Unit, // untuk tombol submit
     onBackButtonClicked: () -> Unit // untuk tombol kembali
 ){
-
+    var nama by remember {
+        mutableStateOf("")
+    }
+    var nim by remember {
+        mutableStateOf("")
+    }
+    var email by remember {
+        mutableStateOf("")
+    }
+    val listData: MutableList<String> =
+        mutableListOf(nim, nama, email)
 
 }
