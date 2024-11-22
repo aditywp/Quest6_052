@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -102,12 +104,12 @@ fun MahasiswaFormView(
                 )
                 .fillMaxSize(),
         ){
-            Column (
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
-            ){
+            ) {
                 Text(
                     text = "Masukkan Data Kamu",
                     fontWeight = FontWeight.Bold,
@@ -115,14 +117,14 @@ fun MahasiswaFormView(
                 )
                 Text(
                     text = "Isi sesuai data yang kamu daftarkan",
-                    fontWeight = FontWeight.Light
+                    fontWeight = FontWeight.Light,
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = nim,
-                    onValueChange = {nim = it },
-                    label = { Text(text = "Nomor Induk Siswa") },
+                    onValueChange = { nim = it },
+                    label = { Text(text = "Nomor Induk Mahasiswa") },
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Info,
@@ -132,44 +134,47 @@ fun MahasiswaFormView(
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Next
+
                     ),
                     singleLine = true,
                     shape = RoundedCornerShape(50.dp)
                 )
-                Spacer(modifier = Modifier.padding(8.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = nama,
-                    onValueChange = {nama = it },
-                    label = { Text(text = "Nama Siswa") },
+                    onValueChange = { nama = it },
+                    label = { Text(text = "Nama Mahasiswa") },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.Info,
+                            imageVector = Icons.Filled.Person,
                             contentDescription = ""
                         )
                     },
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Number,
+                        keyboardType = KeyboardType.Text,
                         imeAction = ImeAction.Next
+
                     ),
                     singleLine = true,
                     shape = RoundedCornerShape(50.dp)
                 )
-                Spacer(modifier = Modifier.padding(8.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = email,
-                    onValueChange = {email = it },
-                    label = { Text(text = "Masukkan email") },
+                    onValueChange = { email = it },
+                    label = { Text(text = "Email Mahasiswa") },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.Info,
+                            imageVector = Icons.Filled.Email,
                             contentDescription = ""
                         )
                     },
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Number,
+                        keyboardType = KeyboardType.Email,
                         imeAction = ImeAction.Next
+
                     ),
                     singleLine = true,
                     shape = RoundedCornerShape(50.dp)
@@ -177,21 +182,25 @@ fun MahasiswaFormView(
                 Spacer(modifier = Modifier.padding(16.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement =
-                    Arrangement.SpaceEvenly
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    Button(onClick = {
-                        onBackButtonClicked()
-                    }) {
+                    Button(
+                        onClick = {
+                            onBackButtonClicked()
+                        }
+                    ) {
                         Text(text = "Kembali")
                     }
-                    Button(onClick = {
-                        onSubmitButtonClicked(listData)
-                    }) {
+                    Button(
+                        onClick = {
+                            onSubmitButtonClicked(listData)
+                        }
+                    ) {
                         Text(text = "Simpan")
                     }
                 }
             }
+
         }
     }
 }

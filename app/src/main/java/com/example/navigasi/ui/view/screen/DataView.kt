@@ -19,19 +19,19 @@ import com.example.navigasi.model.RencanaStudi
 
 @Composable
 fun DataView(
-    dataMHS: Mahasiswa,
-    dataKRS: RencanaStudi,
+    dataMhs: Mahasiswa,
+    dataKrs: RencanaStudi,
     onBackButtonClicked: () -> Unit
 ){
     val listDataMHS = listOf(
-        Pair("NIM", dataMHS.nim),
-        Pair("Nama", dataMHS.nama),
-        Pair("Email", dataMHS.email)
+        Pair("NIM", dataMhs.nim),
+        Pair("Nama", dataMhs.nama),
+        Pair("Email", dataMhs.email)
     )
 
     val listDataKRS = listOf(
-        Pair("Mata Kuliah", dataKRS.mataKuliah),
-        Pair("Kelas", dataKRS.kelas)
+        Pair("Mata Kuliah", dataKrs.mataKuliah),
+        Pair("Kelas", dataKrs.kelas)
     )
 
     Column(
@@ -46,14 +46,14 @@ fun DataView(
             )
 
         listDataMHS.forEach { data ->
-            DetailMHS(
+            DetailMhs(
                 judul = data.first,
                 isinya = data.second
             )
         }
 
         listDataKRS.forEach { data ->
-            DetailMHS(
+            DetailMhs(
                 judul = data.first,
                 isinya = data.second
             )
@@ -66,7 +66,7 @@ fun DataView(
     }
 
 @Composable
-fun DetailMHS(
+fun DetailMhs(
     judul: String,
     isinya: String
 ){

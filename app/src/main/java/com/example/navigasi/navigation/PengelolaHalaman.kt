@@ -52,7 +52,7 @@ fun MahasiswaApp(
                     mahasiswaViewModel.saveDataMhs(it)
                     navController.navigate(Halaman.Matakuliah.name)
                 },
-                onBackButtonClicked =  {
+                onBackButtonClicked = {
                     navController.popBackStack()
                 }
             )
@@ -73,8 +73,8 @@ fun MahasiswaApp(
 
         composable(route = Halaman.Tampil.name){
             DataView(
-                dataMHS = mahasiswaUiState,
-                dataKRS = krsUiState,
+                dataMhs = mahasiswaUiState,
+                dataKrs = krsUiState,
                 onBackButtonClicked = {
                     navController.popBackStack()
                 }
