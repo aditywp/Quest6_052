@@ -89,5 +89,13 @@ fun RencanaStudyView(
                     color = Color.White
                 )
             }
+            Box {
+                Icon(
+                    imageVector = Icons.Filled.Notifications,
+                    contentDescription = "",
+                    tint = Color.White
+                )
+            }
+        }
 
 }
