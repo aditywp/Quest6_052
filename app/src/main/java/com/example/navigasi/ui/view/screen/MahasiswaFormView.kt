@@ -181,9 +181,17 @@ fun MahasiswaFormView(
                     horizontalArrangement =
                     Arrangement.SpaceEvenly
                 ) {
-
+                    Button(onClick = {
+                        onBackButtonClicked()
+                    }) {
+                        Text(text = "Kembali")
+                    }
+                    Button(onClick = {
+                        onSubmitButtonClicked(listData)
+                    }) {
+                        Text(text = "Simpan")
+                    }
                 }
-
             }
         }
     }
