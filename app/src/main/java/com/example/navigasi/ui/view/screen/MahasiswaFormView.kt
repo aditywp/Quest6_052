@@ -39,7 +39,6 @@ import com.example.navigasi.R
 
 @Composable
 fun MahasiswaFormView(
-    modifier: Modifier,
     onSubmitButtonClicked: (MutableList<String>) -> Unit, // untuk tombol submit
     onBackButtonClicked: () -> Unit // untuk tombol kembali
 ){
