@@ -34,5 +34,13 @@ fun SplashView(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
+        Image(
+            painter = painterResource(
+                id =  R.drawable.img
+            ),
+            contentDescription = "",
+            modifier = Modifier.size(150.dp)
+        )
+        Spacer(modifier = Modifier.padding(10.dp))
 
 }
