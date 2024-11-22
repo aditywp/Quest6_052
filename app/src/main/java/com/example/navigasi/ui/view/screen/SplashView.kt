@@ -23,5 +23,16 @@ import com.example.navigasi.R
 fun SplashView(
     onMulaiButton: () -> Unit,
 ) {
+    Column (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                color = colorResource(
+                    id = R.color.primary
+                )
+            ),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ){
 
 }
